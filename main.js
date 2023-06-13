@@ -7,7 +7,10 @@ let weather = {
         "&units=metric&appid=" +
         this.apiKey)
         .then((response)=> response.json())
-        .then((data)=> this.displayWeather(data));
+        .then((data)=> this.displayWeather(data))
+        .catch((error) => {
+                alert("Unable to fetch weather data. Please enter a valid location.");
+            });
 
     },
     displayWeather :function(data){
